@@ -1,7 +1,9 @@
 # JStoFixedUpper
-Equalize the result of  Number.toFixed() in Javascript to the result of PHP's number_format() 
+Equalize the result of  Number.toFixed() in Javascript to the result of PHP's number_format()
+
 Do you have problem when dealing with number or decimal in the client and server? Well, I do.
 Server side validation is mandatory for me (and I'm sure for everyone too). I usually do the math in both side (client and server), and take the server side one to be saved to database.
+
 I found that some functions in Javascript and PHP with similar result format do not generate the same result. For example, the result of javascript's ***Number***.`toFixed()` and the result of PHP's `number_format()` is a bit different.
 
 ### The Research
@@ -26,7 +28,9 @@ echo $result;
 ```
 
 You will see that the results are different.
+
 PHP's number_format converts `123.4750` to `123.48`, it's going up. While, javascript's ***Number***`.toFixed()` converts `123.4750` to `123.47`, going down.
+
 The result is affected by the third number-to-right, `50` (because we used `2` as decimal places). If we raise it to `51` or `50000001`, then javascript's ***Number***`.toFixed()` will return the same result with PHP's `number_format()`.
 
 ### How does this thing make matter?
@@ -53,6 +57,7 @@ Number.prototype.toFixed = function (dec){
 
 ### Conclusion
 The fix overrides the original function. If you don't want the original function gone, back it up by assigning it into the other function, or do not name this fix function as the original name, make it something else. That will make the original function still exists and usable.
+
 **Any critics, suggesstion, pulls, and issues are welcome!**
 
 Thank  you! :)
