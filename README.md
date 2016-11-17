@@ -37,7 +37,7 @@ The result is affected by the third number-to-right, `50` (because we used `2` a
 This is really matter when you do the math with complex formulas and/or fixed calculation algorithms in your program. Since the javascript is client side and PHP is server side, the users of your program may be confused or not sure which calculation is correct. Users will see that the result in their web form is different with what they see after the form is submitted.
 
 ### How this fix works?
-Pelase note, that ** this fix overrides** the ***Number***`.toFixed()` method/function. The number passed to this function will be converted with traditional way. Take a look at the script:
+Pelase note, that **this fix overrides the** ***Number***`.toFixed()` method/function. The number passed to this function will be converted with traditional way. Take a look at the script:
 ``` javascript
 Number.prototype.toFixed = function (dec){
 	var angka	= this;
